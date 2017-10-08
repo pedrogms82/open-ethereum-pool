@@ -8,15 +8,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
-
 )
-
 
 var Ether = math.BigPow(10, 18)
 var Shannon = math.BigPow(10, 9)
 
 var pow256 = math.BigPow(2, 256)
-
 var addressPattern = regexp.MustCompile("^0x[0-9a-fA-F]{40}$")
 var zeroHash = regexp.MustCompile("^0?x?0+$")
 
@@ -55,7 +52,7 @@ func FormatReward(reward *big.Int) string {
 }
 
 func FormatRatReward(reward *big.Rat) string {
-	wei := new(big.Rat).SetInt(Ether) 
+	wei := new(big.Rat).SetInt(Ether)
 	reward = reward.Quo(reward, wei)
 	return reward.FloatString(8)
 }
@@ -76,8 +73,9 @@ func MustParseDuration(s string) time.Duration {
 	}
 	return value
 }
+
 func String2Big(num string) *big.Int {
-        n := new(big.Int)
-        n.SetString(num, 0)
-        return n
- }
+	n := new(big.Int)
+	n.SetString(num, 0)
+	return n
+}
